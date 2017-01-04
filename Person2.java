@@ -3,17 +3,17 @@
 public class Person2 extends Object {
 
 	// enum
-    public static final int FROM = 0;
-	public static final int TO = 1;
-	public static final int SYS_SUM = 2;
-	public static final int IND_SUM = 3;
-	public static final int CHK_SUM = 4;
-	public static final int CHK_INDSUM = 5;
-	public static final int TRANS_AMT = 6;
+    private final int FROM = 0;
+	private final int TO = 1;
+	private final int SYS_SUM = 2;
+	private final int IND_SUM = 3;
+	private final int CHK_SUM = 4;
+	private final int CHK_INDSUM = 5;
+	private final int TRANS_AMT = 6;
 
-    public static final int eSTART = FROM;
-    public static final int eEND = TRANS_AMT;//CHK_INDSUM;
-    public static final int eSIZE = eEND+1;
+    private final int eSTART = FROM;
+    private final int eEND = TRANS_AMT;
+    private final int eSIZE = eEND+1;
 
 	// members
 	String	m_name ;
