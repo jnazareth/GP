@@ -13,9 +13,9 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.List;
 import java.util.Collections;
+import java.util.Arrays;
 
 public class account
 {
@@ -48,9 +48,10 @@ public class account
 	//separators
 	private final String AMT_INDICATOR = ":" ;
 	private final String ITEM_SEPARATOR = "," ;
-	private final String READ_SEPARATOR = "\t" ;
+	//private final String BANG_SEPARATOR = "!" ;
 	private final String TAB_SEPARATOR = "\t" ;
-	//private final String TAB_SEPARATOR = "!" ;
+	private final String REGEX_SEPARATOR = ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" ;
+	private final String READ_SEPARATOR = REGEX_SEPARATOR ;
 	private final String DUMP_SEPARATOR = " : " ;
 
 	//id markers
@@ -683,10 +684,10 @@ public class account
 	{
 		// process Action
 		if (action.length() != 0) {
-			StringTokenizer st = new StringTokenizer(action, ITEM_SEPARATOR);
+			String[] pieces = action.split(ITEM_SEPARATOR);
 			String sActs = "", sAct = "";
-			while (st.hasMoreTokens()) {
-				sActs = st.nextToken() ;
+			for (String p : pieces) {
+				sActs = p ;
 				if (sActs.endsWith(ADD_ITEM)) {	// add
 					sAct = sActs.substring(0, sActs.indexOf('*')).trim() ;
 					if (m_Persons.containsKey(sAct)) {
@@ -1191,10 +1192,10 @@ public class account
 
 		// process Action
 		if (action.length() != 0) {
-			StringTokenizer st = new StringTokenizer(action, ITEM_SEPARATOR);
+			String[] pieces = action.split(ITEM_SEPARATOR);
 			String sActs = "", sIndAct = ADD_ITEM, sGrpAct = ADD_ITEM;
-			while (st.hasMoreTokens()) {
-				sActs = st.nextToken() ;
+			for (String p : pieces) {
+				sActs = p ;
 
 				int lR = 0, rR = 0 ;
 				String aName = "", aGroup = DEFAULT_GROUP ;
@@ -1329,13 +1330,13 @@ public class account
 
 				String item="", category="", vendor="", desc="", amt="", from="", to="", group="", action="", def="" ;
 				// stream the input, one line at a time
-				StringTokenizer st = new StringTokenizer(sLine, READ_SEPARATOR);
+				String[] pieces = sLine.split(READ_SEPARATOR);
 				int pos = 0 ;
 
 				/* control implementation */
 					if (sLine.charAt(0) == CONTROL) { // control record, read
-						while (st.hasMoreTokens()) {
-							String sColumn = st.nextToken() ;
+						for (String p : pieces) {
+							String sColumn = p ;
 							sColumn = sColumn.substring(sColumn.indexOf(CONTROL) + 1, sColumn.length()) ;
 							//System.out.println("sColumn:" + sColumn);
 
@@ -1354,32 +1355,32 @@ public class account
 						continue ;
 					}
 
-					while (st.hasMoreTokens()) {
+					for (String p : pieces) {
 						if (pos == P_ITEM)
-							item = st.nextToken() ;
+							item = p ;
 						else if (pos == P_CATEGORY)
-							category = st.nextToken() ;
+							category = p ;
 						else if (pos == P_VENDOR)
-							vendor = st.nextToken() ;
+							vendor = p ;
 						else if (pos == P_DESC)
-							desc = st.nextToken() ;
+							desc = p ;
 						else if (pos == P_AMOUNT)
-							amt = st.nextToken() ;
+							amt = p ;
 						else if (pos == P_FROM) {
-							from = st.nextToken() ;
+							from = p ;
 							from = removeQuotes(from) ;
 						}
 						else if (pos == P_TO) {
-							to = st.nextToken() ;
+							to = p ;
 							to = removeQuotes(to) ;
 						}
 						else if (pos == P_GROUP)
-							group = st.nextToken() ;
+							group = p ;
 						else if (pos == P_ACTION) {
-							action = st.nextToken() ;
+							action = p ;
 							action = removeQuotes(action) ;
 						}
-						else def = def + st.nextToken() ;
+						else def = def + p ;
 						pos++ ;
 					}
 
