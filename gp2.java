@@ -4,6 +4,7 @@
 -------------------
 history
 -------------------
+v19: read separator switched to comma & quoted strings from tab
 v18: control header
 v17: group implementation
 v16: cleanup: created separete account, removed static declarations
