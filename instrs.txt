@@ -1,19 +1,20 @@
 For example, you would like to see transactions from May 01, 2016 to July 31, 2016 only, then the URL should look like this:                                 https://wwws.mint.com/transaction.event?startDate=05/01/2016&endDate=07/31/2016
 
-cd D:\personal\projects\gp\source\v18
+cd D:\personal\projects\gp\source\GP
 
 javac gp2.java
+javac account2.java
 
-jar cmf META-INF\manifest.mf gp2.jar *.class
+jar cmf META-INF\manifest.mf gp2.jar gp2.class account2.class Person2.class
 jar tf gp2.jar
 
 java -jar gp2.jar group_test.csv
 java -jar gp2.jar control_test.csv
 
-
 java gp2 gp11.names2.csv > gp11.names2.out.csv
-
 java gp2 nov2015\jill.nov.csv
-
 java gp2 gp11.names4.csv
 
+BUGS:
+1. rem, all without amounts bug: all is more buggy
+2. having from & to contain names of individuals who are disabled or removed is not checked in amounts calculation
