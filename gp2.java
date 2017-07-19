@@ -64,7 +64,7 @@ public class gp2
                 fileName = args[parmNo] ;
         }
 
-		account myAccount = new account() ;
+		account2 myAccount = new account2() ;
 		myAccount.ReadAndProcessTransactions(fileName, true) ;	// read input file
         //PrintSummary2() ;
 
