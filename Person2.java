@@ -10,9 +10,10 @@ public class Person2 extends Object {
 	public final int CHK_SUM = 4;
 	public final int CHK_INDSUM = 5;
 	public final int TRANS_AMT = 6;
+	public final int IND_PAID = 7;
 
     private final int eSTART = FROM;
-    private final int eEND = TRANS_AMT;
+    private final int eEND = IND_PAID;
     private final int eSIZE = eEND+1;
 
 	// members
