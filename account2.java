@@ -897,6 +897,10 @@ public class account2
 			for (String p : pieces) {
 				sActs = p ;
 
+				if (sActs.endsWith(CLEARING)) {	// pay between individuals
+					m_bClearing = true ;
+				}
+
 				int lR = 0, rR = 0 ;
 				String aName = "", aGroup = DEFAULT_GROUP ;
 				if ( ((lR = sActs.indexOf(ID_lR)) != -1) && ((rR = sActs.indexOf(ID_rR)) != -1) ) {	// valid construct: <name> (*:self or group)
