@@ -1,7 +1,0 @@
-								transaction amounts(you owe) / owed to you	individual totals
-Item	Category	Vendor	Description	Amount	From	To	Action	gd	jn	gd	jn	CheckSum	gd	jn	IndCheckSum
-Sat 12.10	Furnishings	IKEA	IKEA ELIZABETH ELIZABETH NJ	570.52	jn	jn	jn (*:self), gd (*:self), ikea (*:group)	0.00	570.52	0.00	0.00	0.00	0.00	570.52	0.00
-Sat 12.10	Furnishings	IKEA	IKEA ELIZABETH ELIZABETH NJ	63.13	jn	jn		0.00	63.13	0.00	0.00	0.00	0.00	633.65	0.00
-Thu 12.22	Home Improvement	Home Depot	THE HOME DEPOT #6845 JERSEY CITY NJ	10.33	jn	jn		0.00	10.33	0.00	0.00	0.00	0.00	643.98	0.00
-Thu 12.22	Home Improvement	Home Depot	THE HOME DEPOT #6845 JERSEY CITY NJ	10.33	jn	jn		0.00	10.33	0.00	0.00	0.00	0.00	654.31	0.00
-Fri 12.23	Home Improvement	Wal-Mart	WM SUPERCENTER #3520 SECAUCUS NJ	8.03	jn	jn,gd		4.01	4.01	-4.01	4.01	0.00	4.01	658.33	0.00
